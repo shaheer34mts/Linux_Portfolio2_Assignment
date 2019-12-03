@@ -30,6 +30,11 @@ def howFarAmI ():
 		dist = sensor.distance * 100
 		print(int(dist))	
 		return dist
+def leftMotor ():
+	return leftMotorSpeed
+
+def rightMotor ():
+	return rightMotorSpeed
 def followWall():
 	#while True:
 	counter = 0

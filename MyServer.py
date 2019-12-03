@@ -1,6 +1,6 @@
 import socket
 from robot1 import *
-host = '192.168.99.12' #'192.168.43.230'
+host = '192.168.43.230'
 port = 8080
 
 
@@ -36,8 +36,7 @@ def dataTransfer(conn):
 			s.close()
 			break
 		elif command == 'getdist':
-			getDist()
-			reply = GET2() 
+			reply = getdist() 
 		elif command == 'start':
 			start()
 			reply = GET()
@@ -47,6 +46,8 @@ def dataTransfer(conn):
 		elif command == 'followwall':
 			Wall_Follower()
 			reply = GET()
+		elif command == 'getmotors':
+			reply = Motor_Values()
 		else:
 			reply == 'Unknown Command'
 # Send reply back to the client
@@ -63,21 +64,22 @@ def GET1():
 	reply = STOP_ROBOT
 	return reply
 
-def GET2():
+def getdist():
 	dist = howFarAmI()
 	storedValue2 = "The distance is :" + str(dist)
 	return storedValue2
 
-def getDist():
-	reply = howFarAmI()
-#	print (reply)
-	return reply
 
 def Wall_Follower():
         followWall()
         valuee = "Robot is trying to follow the wall (we think :P)"
         return valuee
 
+def Motor_Values():
+	left_value = leftMotor()
+	right_value = rightMotor()
+	values = "Left Motor speed is : " + str(left_value) + "      " +  "Right Motor value is :  " + str(right_value)	
+	return values
 s =  setupServer()
 while True:
 	try:
