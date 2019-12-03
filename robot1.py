@@ -40,7 +40,7 @@ def stop():
 def howFarAmI ():
 	while True:
 		dist = sensor.distance * 100
-		print(int(dist))	
+#		print(int(dist))	
 		return dist
 #dist = (str(distance))	
 #distance = distance
