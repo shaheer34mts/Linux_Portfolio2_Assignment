@@ -1,6 +1,6 @@
 import socket
 from robot1 import *
-host = '192.168.43.230'
+host = '192.168.99.12' #'192.168.43.230'
 port = 8080
 
 
@@ -44,6 +44,9 @@ def dataTransfer(conn):
 		elif command == 'stop':
 			stop()
 			reply = GET1()
+		elif command == 'followwall':
+			Wall_Follower()
+			reply = GET()
 		else:
 			reply == 'Unknown Command'
 # Send reply back to the client
@@ -70,6 +73,10 @@ def getDist():
 #	print (reply)
 	return reply
 
+def Wall_Follower():
+        followWall()
+        valuee = "Robot is trying to follow the wall (we think :P)"
+        return valuee
 
 s =  setupServer()
 while True:
