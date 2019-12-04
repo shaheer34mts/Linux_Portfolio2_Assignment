@@ -1,6 +1,6 @@
 import socket
 from robot1 import *
-host = '192.168.43.230'
+host = '192.168.99.12'
 port = 8080
 
 

@@ -38,7 +38,7 @@ def rightMotor ():
 def followWall():
 	#while True:
 	counter = 0
-	while (counter <= 30): #we can change the value depending on how long we want to run the robot
+	while (counter <= 50): #we can change the value depending on how long we want to run the robot
 		counter = counter + 1
 		distance = sensor.distance * 100
 		print ("Distance before moving: %.1f cm" % distance)
